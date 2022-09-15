@@ -19,18 +19,20 @@ contract BlockProof {
 
     function registerNewAuthority(string authorityName)
         public
-        returns (uint256)
+        returns (uint256 number)
     {
         uint256 authNumber = authorities.length;
-        authorities.push(
-            Authority(authorityName, authNumber, msg.sender, new Software[](0))
-        );
+        Authority authority;
+        authority.name = authorityName;
+        authority.authNumber = authNumber;
+        authority.owner = msg.sender;
+        authorities.push(authority);
         return authNumber;
     }
 
     function registerNewSoftware(uint256 authNumber, string softwareName)
         public
-        returns (uint256)
+        returns (uint256 number)
     {
         uint256 newSoftwareNumber = authorities[authNumber].softwares.length;
         authorities[authNumber].softwares.push(
@@ -55,8 +57,8 @@ contract BlockProof {
         uint256 authNumber,
         uint256 softwareNumber,
         string softwareVersion
-    ) public returns (string) {
-        string _softwareHash = authorities[authNumber]
+    ) public view returns (string hash) {
+        string storage _softwareHash = authorities[authNumber]
             .softwares[softwareNumber]
             .hashes[softwareVersion];
         return _softwareHash;
