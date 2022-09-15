@@ -1,0 +1,386 @@
+[
+    {
+        "id": "51ee9d5a9e3955a6",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "986e852188190f20",
+        "type": "debug",
+        "z": "51ee9d5a9e3955a6",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "33222c9708e3a2f2",
+        "type": "http response",
+        "z": "51ee9d5a9e3955a6",
+        "name": "Return",
+        "statusCode": "  200",
+        "headers": {},
+        "x": 910,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "21d17c47ff480c2f",
+        "type": "http in",
+        "z": "51ee9d5a9e3955a6",
+        "name": "",
+        "url": "/getSoftwareHash",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 80,
+        "wires": [
+            [
+                "1b589bde0de677d9"
+            ]
+        ]
+    },
+    {
+        "id": "c22bac6947da66de",
+        "type": "contract-call",
+        "z": "51ee9d5a9e3955a6",
+        "name": "BlockProof",
+        "smartContract": "295fe8fefcecdc30",
+        "contractFunction": "registerNewAuthority",
+        "senderAccount": "547de2aeb7c70a1d",
+        "readonlyFunction": false,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": true,
+        "x": 530,
+        "y": 180,
+        "wires": [
+            [],
+            [
+                "986e852188190f20",
+                "33222c9708e3a2f2"
+            ]
+        ]
+    },
+    {
+        "id": "27089618193d06e2",
+        "type": "http in",
+        "z": "51ee9d5a9e3955a6",
+        "name": "",
+        "url": "/registerNewAuthority",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 180,
+        "wires": [
+            [
+                "c22bac6947da66de"
+            ]
+        ]
+    },
+    {
+        "id": "820794834517cad9",
+        "type": "http in",
+        "z": "51ee9d5a9e3955a6",
+        "name": "",
+        "url": "/registerNewSoftware",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 300,
+        "wires": [
+            [
+                "d2a969f356efa721",
+                "d0a69ac28e36c628"
+            ]
+        ]
+    },
+    {
+        "id": "1a68ca3282d6d061",
+        "type": "http in",
+        "z": "51ee9d5a9e3955a6",
+        "name": "",
+        "url": "/addNewSoftwareVersion",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 420,
+        "wires": [
+            [
+                "f8eb53f8540e23dd"
+            ]
+        ]
+    },
+    {
+        "id": "2209a8792e773240",
+        "type": "contract-call",
+        "z": "51ee9d5a9e3955a6",
+        "name": "BlockProof",
+        "smartContract": "295fe8fefcecdc30",
+        "contractFunction": "getSoftwareHash",
+        "senderAccount": "547de2aeb7c70a1d",
+        "readonlyFunction": true,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": true,
+        "x": 530,
+        "y": 80,
+        "wires": [
+            [],
+            [
+                "8749ebda577c9aae",
+                "33222c9708e3a2f2",
+                "986e852188190f20"
+            ]
+        ]
+    },
+    {
+        "id": "d2a969f356efa721",
+        "type": "contract-call",
+        "z": "51ee9d5a9e3955a6",
+        "name": "BlockProof",
+        "smartContract": "295fe8fefcecdc30",
+        "contractFunction": "registerNewSoftware",
+        "senderAccount": "547de2aeb7c70a1d",
+        "readonlyFunction": false,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": true,
+        "x": 530,
+        "y": 300,
+        "wires": [
+            [],
+            [
+                "33222c9708e3a2f2",
+                "986e852188190f20"
+            ]
+        ]
+    },
+    {
+        "id": "f8eb53f8540e23dd",
+        "type": "contract-call",
+        "z": "51ee9d5a9e3955a6",
+        "name": "BlockProof",
+        "smartContract": "295fe8fefcecdc30",
+        "contractFunction": "addNewSoftwareVersion",
+        "senderAccount": "547de2aeb7c70a1d",
+        "readonlyFunction": false,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": true,
+        "x": 530,
+        "y": 420,
+        "wires": [
+            [],
+            [
+                "33222c9708e3a2f2",
+                "986e852188190f20"
+            ]
+        ]
+    },
+    {
+        "id": "d0a69ac28e36c628",
+        "type": "debug",
+        "z": "51ee9d5a9e3955a6",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "1b589bde0de677d9",
+        "type": "template",
+        "z": "51ee9d5a9e3955a6",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "[\"{{payload.softwareNumber}}\",\"{{payload.softwareVersion}}\"]",
+        "output": "json",
+        "x": 340,
+        "y": 80,
+        "wires": [
+            [
+                "2209a8792e773240"
+            ]
+        ]
+    },
+    {
+        "id": "8749ebda577c9aae",
+        "type": "ui_text",
+        "z": "51ee9d5a9e3955a6",
+        "group": "b04deb4d465fdb49",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Software hash:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1020,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "281b5fbd7714019a",
+        "type": "event-listener",
+        "z": "51ee9d5a9e3955a6",
+        "name": "",
+        "smartContract": "6bcb2f35b57e9a4d",
+        "contractEvent": "NewSoftware",
+        "filter": "",
+        "x": 530,
+        "y": 20,
+        "wires": [
+            [
+                "d3a6ce336b6e076a",
+                "c12d5bb706cb37ba"
+            ]
+        ]
+    },
+    {
+        "id": "9ed66f724ef994d8",
+        "type": "debug",
+        "z": "51ee9d5a9e3955a6",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "d3a6ce336b6e076a",
+        "type": "template",
+        "z": "51ee9d5a9e3955a6",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{summary.eventData.returnValues.owner}} + {{summary.eventData.returnValues.softwareNumber}}",
+        "output": "str",
+        "x": 740,
+        "y": 20,
+        "wires": [
+            [
+                "9ed66f724ef994d8"
+            ]
+        ]
+    },
+    {
+        "id": "c12d5bb706cb37ba",
+        "type": "debug",
+        "z": "51ee9d5a9e3955a6",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "295fe8fefcecdc30",
+        "type": "smart-contract",
+        "name": "BlockProof",
+        "ethereumClient": "55bc0132ab155e4d",
+        "address": "0x46EBA16B60Eb87A6C75C9603b4C3b2f54dFAB30d",
+        "abi": "[     {         \"inputs\": [             {                 \"internalType\": \"uint256\",                 \"name\": \"softwareNumber\",                 \"type\": \"uint256\"             },             {                 \"internalType\": \"string\",                 \"name\": \"softwareVersion\",                 \"type\": \"string\"             },             {                 \"internalType\": \"string\",                 \"name\": \"mewSoftwareHash\",                 \"type\": \"string\"             }         ],         \"name\": \"addNewSoftwareVersion\",         \"outputs\": [             {                 \"internalType\": \"bool\",                 \"name\": \"sucessfull\",                 \"type\": \"bool\"             }         ],         \"stateMutability\": \"nonpayable\",         \"type\": \"function\"     },     {         \"inputs\": [             {                 \"internalType\": \"uint256\",                 \"name\": \"softwareNumber\",                 \"type\": \"uint256\"             },             {                 \"internalType\": \"string\",                 \"name\": \"softwareVersion\",                 \"type\": \"string\"             }         ],         \"name\": \"getSoftwareHash\",         \"outputs\": [             {                 \"internalType\": \"string\",                 \"name\": \"hash\",                 \"type\": \"string\"             }         ],         \"stateMutability\": \"view\",         \"type\": \"function\"     },     {         \"inputs\": [             {                 \"internalType\": \"string\",                 \"name\": \"authorityName\",                 \"type\": \"string\"             }         ],         \"name\": \"registerNewAuthority\",         \"outputs\": [],         \"stateMutability\": \"nonpayable\",         \"type\": \"function\"     },     {         \"inputs\": [             {                 \"internalType\": \"string\",                 \"name\": \"softwareName\",                 \"type\": \"string\"             }         ],         \"name\": \"registerNewSoftware\",         \"outputs\": [             {                 \"internalType\": \"uint256\",                 \"name\": \"number\",                 \"type\": \"uint256\"             }         ],         \"stateMutability\": \"nonpayable\",         \"type\": \"function\"     } ]"
+    },
+    {
+        "id": "547de2aeb7c70a1d",
+        "type": "sender-account",
+        "name": "Edward Snowden",
+        "ethereumClient": "55bc0132ab155e4d",
+        "address": "0xcC8563F41149231fBd8Bd537109E1B6aBa91590c",
+        "managedByEthereumClient": true,
+        "transactionQueueSize": "100",
+        "credentials": {}
+    },
+    {
+        "id": "b04deb4d465fdb49",
+        "type": "ui_group",
+        "name": "Read Software Hash from Blockchain",
+        "tab": "98c06b64b4822d5c",
+        "order": 1,
+        "disp": true,
+        "width": "14",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6bcb2f35b57e9a4d",
+        "type": "smart-contract",
+        "name": "BlockProof",
+        "ethereumClient": "55bc0132ab155e4d",
+        "address": "0x46EBA16B60Eb87A6C75C9603b4C3b2f54dFAB30d",
+        "abi": "[     {         \"anonymous\": false,         \"inputs\": [             {                 \"indexed\": true,                 \"internalType\": \"address\",                 \"name\": \"owner\",                 \"type\": \"address\"             },             {                 \"indexed\": false,                 \"internalType\": \"uint256\",                 \"name\": \"softwareNumber\",                 \"type\": \"uint256\"             }         ],         \"name\": \"NewSoftware\",         \"type\": \"event\"     },     {         \"inputs\": [             {                 \"internalType\": \"uint256\",                 \"name\": \"softwareNumber\",                 \"type\": \"uint256\"             },             {                 \"internalType\": \"string\",                 \"name\": \"softwareVersion\",                 \"type\": \"string\"             },             {                 \"internalType\": \"string\",                 \"name\": \"mewSoftwareHash\",                 \"type\": \"string\"             }         ],         \"name\": \"addNewSoftwareVersion\",         \"outputs\": [],         \"stateMutability\": \"nonpayable\",         \"type\": \"function\"     },     {         \"inputs\": [             {                 \"internalType\": \"uint256\",                 \"name\": \"softwareNumber\",                 \"type\": \"uint256\"             },             {                 \"internalType\": \"string\",                 \"name\": \"softwareVersion\",                 \"type\": \"string\"             }         ],         \"name\": \"getSoftwareHash\",         \"outputs\": [             {                 \"internalType\": \"string\",                 \"name\": \"hash\",                 \"type\": \"string\"             }         ],         \"stateMutability\": \"view\",         \"type\": \"function\"     },     {         \"inputs\": [             {                 \"internalType\": \"string\",                 \"name\": \"authorityName\",                 \"type\": \"string\"             }         ],         \"name\": \"registerNewAuthority\",         \"outputs\": [],         \"stateMutability\": \"nonpayable\",         \"type\": \"function\"     },     {         \"inputs\": [             {                 \"internalType\": \"string\",                 \"name\": \"softwareName\",                 \"type\": \"string\"             }         ],         \"name\": \"registerNewSoftware\",         \"outputs\": [],         \"stateMutability\": \"nonpayable\",         \"type\": \"function\"     } ]"
+    },
+    {
+        "id": "55bc0132ab155e4d",
+        "type": "ethereum-client",
+        "name": "GanacheClient",
+        "url": "ws://127.0.0.1:7545"
+    },
+    {
+        "id": "98c06b64b4822d5c",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
