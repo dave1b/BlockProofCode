@@ -1,0 +1,138 @@
+{
+	"compiler": {
+		"version": "0.8.6+commit.11564f7e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "softwareNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "NewSoftware",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "softwareNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "softwareVersion",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "mewSoftwareHash",
+						"type": "string"
+					}
+				],
+				"name": "addNewSoftwareVersion",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "softwareNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "softwareVersion",
+						"type": "string"
+					}
+				],
+				"name": "getSoftwareHash",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "hash",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "authorityName",
+						"type": "string"
+					}
+				],
+				"name": "registerNewAuthority",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "softwareName",
+						"type": "string"
+					}
+				],
+				"name": "registerNewSoftware",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"BlockProof.sol": "BlockProof"
+		},
+		"evmVersion": "berlin",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"BlockProof.sol": {
+			"keccak256": "0x0328e7c49475173002726e58ef5053edfd7d1fb82c7cdbb20817764092dd5661",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b797df1a9193afa3289257e89adf4b948abb78a4b8c01d790e740659dd1f8922",
+				"dweb:/ipfs/QmRBnep6qJsH7Nkm5S9xSoH1c3L6obdVwChmGXhHr4xykR"
+			]
+		}
+	},
+	"version": 1
+}
