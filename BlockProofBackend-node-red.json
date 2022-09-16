@@ -20,8 +20,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 920,
-        "y": 180,
+        "x": 1020,
+        "y": 340,
         "wires": []
     },
     {
@@ -31,8 +31,8 @@
         "name": "Return",
         "statusCode": "  200",
         "headers": {},
-        "x": 910,
-        "y": 300,
+        "x": 1010,
+        "y": 380,
         "wires": []
     },
     {
@@ -45,7 +45,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 120,
-        "y": 80,
+        "y": 160,
         "wires": [
             [
                 "1b589bde0de677d9"
@@ -68,8 +68,8 @@
         "usePreviousBlocksGasPrice": true,
         "gasPrice": "",
         "fetchFullTransaction": true,
-        "x": 530,
-        "y": 180,
+        "x": 630,
+        "y": 260,
         "wires": [
             [],
             [
@@ -88,7 +88,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 140,
-        "y": 180,
+        "y": 260,
         "wires": [
             [
                 "c22bac6947da66de"
@@ -105,11 +105,10 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 140,
-        "y": 300,
+        "y": 380,
         "wires": [
             [
-                "d2a969f356efa721",
-                "d0a69ac28e36c628"
+                "d2a969f356efa721"
             ]
         ]
     },
@@ -123,7 +122,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 150,
-        "y": 420,
+        "y": 500,
         "wires": [
             [
                 "f8eb53f8540e23dd"
@@ -146,8 +145,8 @@
         "usePreviousBlocksGasPrice": true,
         "gasPrice": "",
         "fetchFullTransaction": true,
-        "x": 530,
-        "y": 80,
+        "x": 630,
+        "y": 160,
         "wires": [
             [],
             [
@@ -173,8 +172,8 @@
         "usePreviousBlocksGasPrice": true,
         "gasPrice": "",
         "fetchFullTransaction": true,
-        "x": 530,
-        "y": 300,
+        "x": 630,
+        "y": 380,
         "wires": [
             [],
             [
@@ -199,8 +198,8 @@
         "usePreviousBlocksGasPrice": true,
         "gasPrice": "",
         "fetchFullTransaction": true,
-        "x": 530,
-        "y": 420,
+        "x": 630,
+        "y": 500,
         "wires": [
             [],
             [
@@ -210,35 +209,18 @@
         ]
     },
     {
-        "id": "d0a69ac28e36c628",
-        "type": "debug",
-        "z": "51ee9d5a9e3955a6",
-        "name": "debug 5",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 360,
-        "y": 260,
-        "wires": []
-    },
-    {
         "id": "1b589bde0de677d9",
         "type": "template",
         "z": "51ee9d5a9e3955a6",
-        "name": "",
+        "name": "Request param formatter",
         "field": "payload",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
         "template": "[\"{{payload.softwareNumber}}\",\"{{payload.softwareVersion}}\"]",
         "output": "json",
-        "x": 340,
-        "y": 80,
+        "x": 390,
+        "y": 160,
         "wires": [
             [
                 "2209a8792e773240"
@@ -258,8 +240,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 1020,
-        "y": 80,
+        "x": 1040,
+        "y": 160,
         "wires": []
     },
     {
@@ -270,12 +252,11 @@
         "smartContract": "6bcb2f35b57e9a4d",
         "contractEvent": "NewSoftware",
         "filter": "",
-        "x": 530,
-        "y": 20,
+        "x": 130,
+        "y": 660,
         "wires": [
             [
-                "d3a6ce336b6e076a",
-                "c12d5bb706cb37ba"
+                "d3a6ce336b6e076a"
             ]
         ]
     },
@@ -292,45 +273,28 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 920,
-        "y": 20,
+        "x": 580,
+        "y": 660,
         "wires": []
     },
     {
         "id": "d3a6ce336b6e076a",
         "type": "template",
         "z": "51ee9d5a9e3955a6",
-        "name": "",
+        "name": "Event formatter",
         "field": "payload",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
         "template": "{{summary.eventData.returnValues.owner}} + {{summary.eventData.returnValues.softwareNumber}}",
         "output": "str",
-        "x": 740,
-        "y": 20,
+        "x": 360,
+        "y": 660,
         "wires": [
             [
                 "9ed66f724ef994d8"
             ]
         ]
-    },
-    {
-        "id": "c12d5bb706cb37ba",
-        "type": "debug",
-        "z": "51ee9d5a9e3955a6",
-        "name": "debug 7",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 740,
-        "y": 60,
-        "wires": []
     },
     {
         "id": "295fe8fefcecdc30",
@@ -347,8 +311,7 @@
         "ethereumClient": "55bc0132ab155e4d",
         "address": "0xcC8563F41149231fBd8Bd537109E1B6aBa91590c",
         "managedByEthereumClient": true,
-        "transactionQueueSize": "100",
-        "credentials": {}
+        "transactionQueueSize": "100"
     },
     {
         "id": "b04deb4d465fdb49",
